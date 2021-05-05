@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de instrumentos de ahorro</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <script defer src="ajax.js"></script>
+    
+    <script defer src="ObjetoCuponCero.js"></script>
+    <script defer src="ObjetoLetra.js"></script>
+    <script defer src="ObjetoBonoCupon.js"></script>
+    <script defer src="ObjetoLetra.js"></script>
+    <script defer src="ObjetoUsuario.js"></script>
+    <script defer src="Funciones.js"></script>
+    <script defer src="eventos.js"></script>
+    <script defer src="efectos.js"></script>
+
+</head>
+<body id="Top">
+
+<div id="simulador">
+        <div class="row nav overlay">
+          <nav>
+          <ul class="topnav" id="topnav">
+            <button id="hamburguesa"> 🞬 </button>
+            <li class="nav-link"><a href="#SinCupon">Bono Cupon Cero</a></li>
+            <li class="nav-link"><a href="#ConCupon">Bono Con Cupon</a></li>
+            <li class="nav-link"><a href="#Letra1">Letra de Corto Plazo</a></li>
+            <li class="nav-link"><a href="#Letra2">Letra de Largo Plazo</a></li>
+          </ul>
+        </nav>
+      </div>
+
+   
+
+   <div class="jumbotron text-center">
+        <div class="container-fluid">
+                <div class="row justify-content-center align-items-center text-center espacios">
+                    <h3>CALCULADORA DE INSTRUMENTOS DE AHORRO </h3>
+                </div>
+                <div id="ContenedorLogueo" class="row justify-content-center align-items-center text-center">
+                  <div id="Logeo">
+                        <h6 id="Usuario">Bienvenido</h6>
+                  </div>                
+                </div>
+               
+                <div class="row">
+                  <!-- <div class="row justify-content-center align-items-center text-center">
+                    <p id="6M"><i>Tasa de Mercado 6M: </i></h6>
+                 </div>
+                 <div class="row justify-content-center align-items-center text-center">
+                  <p id="2A"><i>Tasa de Mercado 2A: </i></p>
+                </div>
+                <div class="row justify-content-center align-items-center text-center">
+                <p id="3A"><i>Tasa de Mercado 3A: </i></p>
+                </div>
+               <div class="row justify-content-center align-items-center text-center">
+                <p id="5A"><i>Tasa de Mercado de 5A: </i></p>
+                </div>
+                <div class="row justify-content-center align-items-center text-center">
+                <p id="7A"><i>Tasa de Mercado de 7A: </i></p>
+                </div>
+                <div class="row justify-content-center align-items-center text-center">
+                <p id="10A"><i>Tasa de Mercado de 10A: </i></p>
+                </div> -->
+              </div>   
+        </div>
+    </div>
+
+        <br>  
+        <br> 
+
+    
+
+    <div class="container pt-3 border border-secondary rounded-lg">
+        <div class="container-fluid" id="SinCupon">
+                <div class="row justify-content-center align-items-center text-center">
+                  <div class="col-sm-3 col-md-10 col-lg-10">
+                    <h4>RENTABILIDAD DE BONO CUPON CERO</h4>
+                  </div>
+                  <div class="col-sm-3 col-md-2 col-lg-2">    
+                    <span><a href="#ModalCuponCero" data-toggle="modal" title="Click para mas informacion" data-toggle="tooltip" data-placement="right" data-target="#ModalCuponCero"><img id="imagen1" src="images/icono.png" style="vertical-align:middle" width="20%"></a></span>
+                  </div>  
+                    <br>                                                                        
+                 
+              </div> 
+        </div>
+    <div class="container pt-3">
+        <div class="container-fluid" id="espacioLimpiar" style=" justify-content: center; max-width: max-content; margin-top: 30px;"> 
+         
+               <div class="form-group">
+                    <label for="pCompra">Precio de Compra:</label><br>
+                    <input type="number" id="pCompra" name="pCompra"><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="pReembolso">Precio Reembolso:</label><br>
+                    <input type="number" id="pReembolso" name="pReembolso" placeholder="1000" ><br>
+                </div>
+                <div class="form-group">
+                    <label for="años">Periodos:</label><br>
+                    <input type="number" id="años" name="años"><br>
+                </div>
+                    <br> 
+           
+        </div>   
+        <div class="container" style=" justify-content: center; max-width: max-content; margin-top: 10px;">                   
+                    <button onclick="Calculo1(); GuardarDatosBono(); ValidoCampos1(); RendimientoEquivalente()" id="botonCCero" class="btn btn-secondary">CALCULAR</button>
+                    <button onclick="LimpiarCero()" id="botonlimpiarCero" class="btn btn-secondary">LIMPIAR</button>
+                    <br> 
+                    <br>                                    
+        </div> 
+
+      <div class="container" id="CCero" style=" justify-content: center; max-width: max-content; margin-top: 10px;"></div> 
+      <div class="container" id="equivalente" style=" justify-content: center; max-width: max-content; margin-top: 10px;"></div> 
+
+  </div>                    
+    </div>    
+                       
+    </div>
+    <br>
+    <br>
+
+<!-- Modal Bono Cupon Cero -->
+<div class="modal" id="ModalCuponCero">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        
+        <div class="modal-header">
+          <h1 class="modal-title">Bono Cupon Cero</h1>
+          <button type="button" class="close" id="close1" data-dismiss="modal">×</button>
+        </div>
+        
+        <div class="modal-body">
+          <h3>Instrumento de Renta Fija</h3>
+          <p>* Valor Nominal en base a 1000</p>
+          <p>Son títulos de deuda a largo plazo, emitidos por el Estado para su financiamiento. Se negocian en bolsa y son los instrumentos de mayor liquidez del mercado local. </p>
+          <p>Bono que no tiene pago periódico de intereses, sino que estos son abonados en su totalidad en el momento de su amortización. Suele ser emitido al descuento, es decir, que los intereses que devenga se descuentan del precio de adquisición.Las emisiones actualmente en circulación fueron emitidas en diferentes  monedas, las hay por ejemplo en pesos, unidades indexadas (pesos ajustados por el índice de precios al consumo), dólares, </p>  
+          <img src="images/CuponCero.png" alt="Bono Cupon Cero" width="400" height="200">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="container pt-3 border border-secondary rounded-lg">
+        <div class="container-fluid">
+                <div class="row justify-content-center align-items-center text-center">
+                  <div class="col-sm-3 col-md-10 col-lg-10">
+                    <h4>BONO CON CUPON (YIELD TO MATURITY) </h4>
+                </div>             
+               
+                  <div class="col-sm-3 col-md-2 col-lg-2">          
+                    <span><a href="#ModalBonoCupon" data-toggle="modal"  data-toggle="tooltip" data-placement="right" data-target="#ModalBonoCupon"><img id="imagen2" src="images/icono.png" style="vertical-align:middle"  width="20%"></a></span>
+                  </div>
+                  </div>
+               
+        </div>
+    
+    <div class="container pt-3" id="ConCupon">
+        <div class="container-fluid" id="espacioLimpiarCCupon" style=" justify-content: center; max-width: max-content; margin-top: 30px;"> 
+                 
+               <div class="form-group">
+                    <label for="PrecioBonoCupon">Precio de Compra:</label><br>
+                    <input type="number" id="PrecioBonoCupon" name="PrecioBonoCupon" ><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="FaceValue">Precio de Mercado:</label><br>
+                    <input type="number" id="FaceValue" name="FaceValue" placeholder="1000" ><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="AVencimiento">Años al Vencimiento:</label><br>
+                    <input type="number" id="AVencimiento" name="AVencimiento"><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="TasaCupon">Tasa Anual de Cupon (%):</label><br>
+<!--                 
+                    <div class="input-group"> -->
+                        <input type="number" id="TasaCupon" name="TasaCupon" >
+                    <!-- </div> -->
+                    
+                </div>
+        </div>   
+        <div class="container" style=" justify-content: center; max-width: max-content; margin-top: 10px;">                   
+                    <button onclick="CalculoYTM(); CurrentYield()" onsubmit="GuardarDatosBonoConCupon(); ValidoCamposYTM()" id="botonCCupon" class="btn btn-secondary">CALCULAR</button>
+                    <button onclick="Limpiar()" id="botonlimpiarCCupon" class="btn btn-secondary">LIMPIAR</button>
+                    <br> 
+                    <br>                                    
+        </div> 
+
+        
+        <div class="container" id="currentyield" style=" justify-content: center; max-width: max-content; margin-top: 10px;"></div> 
+        <div class="container" id="CCupon" style=" justify-content: center; max-width: max-content; margin-top: 10px;"></div>
+                          
+    
+      </div>    
+                       
+    </div>
+    <br>
+    <br>
+
+<!-- Modal Bono Cupon  -->
+<div class="modal" id="ModalBonoCupon">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        
+        <div class="modal-header">
+          <h1 class="modal-title">Bono Cupon</h1>
+          <button type="button" class="close" id="close2" data-dismiss="modal">×</button>
+        </div>
+        
+        <div class="modal-body">
+          <h3>Instrumento de Renta Fija</h3>
+          <p>* Valor Nominal en base a 1000</p>
+          <p>** Hemos supuesto que el Cupon paga en iguales periodos y en igual monto y capitalizable a la misma tasa</p>
+          <p>Son títulos de deuda a largo plazo, emitidos por el Estado para su financiamiento. Se negocian en bolsa y son los instrumentos de mayor liquidez del mercado local. </p>
+          <p>El cupón de un activo financiero de deuda es un tipo de interés que se materializa en el pago a su poseedor de un determinado tanto por ciento sobre el valor nominal del titulo.</p>
+          <p>El propósito de la fórmula es determinar el rendimiento de un bono (u otro valor de activo fijo) de acuerdo con su precio de mercado más reciente. El cálculo de YTM está estructurado para mostrar, basado en la capitalización, el rendimiento efectivo que debe tener un valor una vez que alcanza la madurez. Es diferente del rendimiento simple, que determina el rendimiento que debe tener un valor al vencimiento, pero se basa en dividendos y no en intereses compuestos.</p>
+          <p>Es importante comprender que la fórmula anterior solo es útil para un YTM aproximado. Para calcular el verdadero YTM, un analista o inversor debe utilizar el método de prueba y error. Esto se hace usando una variedad de tasas que se sustituyen en la ranura de valor actual de la fórmula. El verdadero YTM se determina una vez que el precio coincide con el precio de mercado actual real del valor.</p>  
+          <img src="images/BonoCupon.png" alt="Bono con Cupon Fijo" width="400" height="200">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+    <div class="container pt-3 border border-secondary rounded-lg">
+        <div class="container-fluid" id="Letra1">  
+            <div class="row justify-content-center align-items-center text-center">  
+              <div class="col-sm-3 col-md-10 col-lg-10">     
+                <h4>LETRA DE REGULACION MONETARIA (menor a 360 dias) </h4>
+              </div>
+              <div class="col-sm-3 col-md-2 col-lg-2">  
+                <span><a href="#ModalLetraMenor" data-toggle="modal" title=data-toggle="tooltip" data-placement="right" data-target="#ModalLetraMenor"><img id="imagen3" src="images/icono.png"  style="vertical-align:middle" width="20%"></a></span>
+              </div>
+                <br> 
+            </div>
+        </div>
+  
+        <div class="container pt-3">
+         <div class="container-fluid" id="espaciolimpiarLRMmenor" style="justify-content: center; max-width: max-content; margin-top: 50px;">
+                <div class="form-group">
+                    <label for="precioAdquisicion1">Precio de Adquisicion:</label><br>
+                    <input type="number"  id="pAdqui1" name="precioAdqui1"><br>
+                </div>
+                <div class="form-group">
+                    <label for="pReembolso">Precio Venta:</label><br>
+                    <input type="number" id="pReembolsoMenor" name="pReembolsoMenor" placeholder="1000" ><br>
+                </div>
+                <div class="form-group">    
+                    <label for="diasLetra1">Dias:</label><br>
+                    <input type="number" id="diasLetra1" name="diasLetra1"><br>
+                </div>    
+                    <br>                    
+            </div>        
+            <div class="container" style=" justify-content: center; max-width: max-content; margin-top: 10px;">         
+                 <button  onclick="Calculo2(); ValidoCampos2(); GuardarDatosLetraMenor()" id="botonLRMmenor" class="btn btn-secondary">CALCULAR</button>
+                 <button  onclick="LimpiarLRMmenor()" class="btn btn-secondary">LIMPIAR</button>
+                 <br>
+                 <br>
+            </div>
+
+            <div class="container" id="LRMmenor" style=" justify-content: center; max-width: max-content; margin-top: 10px;"> </div>
+    </div>
+  
+  </div>     
+   <br>
+   <br>
+    
+   <!-- Modal Letra Menor  -->
+<div class="modal" id="ModalLetraMenor">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        
+        <div class="modal-header">
+          <h1 class="modal-title">Letra de Regulacion Monetaria (menor a 365 dias)</h1>
+          <button type="button" class="close" id="close3" data-dismiss="modal">×</button>
+        </div>
+        
+        <div class="modal-body">
+          <h3>Instrumento de Renta Fija</h3>
+          <p>* Valor Nominal en base a 1000</p>
+          <p>El BCU emite Letras de Regulación Monetaria (LRM) con el objetivo de regular la liquidez del sistema financiero.Se trata de instrumentos financieros de cupón cero (a descuento), y son los valores de mayor liquidez en el mercado. </p>
+          <p>Las LRM en moneda nacional se emiten actualmente a plazos de aproximadamente 30,90, 180, 360 y 720 días.</p>
+          <img src="images/LetraMenor.png" alt="LRM Menor 365 dias" width="400" height="200">  
+        </div>
+        
+      </div>
+    </div>
+  </div>
+   
+   
+   <div class="container pt-3 border border-secondary rounded-lg">
+        <div class="container-fluid" id="Letra2">
+                <div class="row justify-content-center align-items-center text-center">
+                  <div class="col-sm-3 col-md-10 col-lg-10">     
+                    <h4>LETRA DE REGULACION MONETARIA (mayor a 360 dias)</h4>
+                  </div>  
+                  <div class="col-sm-3 col-md-2 col-lg-2"> 
+                    <span><a href="#ModalLetraMayor" data-toggle="modal" data-toggle="tooltip" data-target="#ModalLetraMayor"><img id="imagen4" src="images/icono.png" style="vertical-align:middle" width="20%"></a></span>
+                  </div>  
+                    <br> 
+                </div>
+        </div> 
+      <div class="container pt-3">
+        <div class ="container-fluid"  id="espacioLimpiarLRMmayor" style="justify-content: center; max-width: max-content; margin-top: 50px; margin-bottom:20px ;" >
+                <div class="form-group">
+
+                    <label for="precioAquisicion2">Precio de Adquisicion:</label><br>
+                    <input type="number"  id="pAdqui2" name="pAdqui2"><br>
+                </div>
+                <div class="form-group">
+                    <label for="pReembolso">Precio Venta:</label><br>
+                    <input type="number" id="pReembolsoMayor" name="pReembolsoMayor" placeholder="1000"><br>
+                </div>
+                <div class="form-group">  
+                    <label for="diasLetra2">Dias:</label><br>
+                    <input type="number" id="diasLetra2" name="diasLetra2"><br>
+                </div>
+
+                <p>Moneda:</p>
+                <input type="radio" id="UYU" name="UYU">
+                <label for="UYU">UYU</label><br>
+                <input type="radio" id="UI" name="UI">
+                <label for="UI">UI</label><br>
+
+          
+        </div>
+      </div>
+        <div class="container" style=" justify-content: center; max-width: max-content; margin-top: 10px;">
+                <button onclick="Calculo3(); ValidoCampos3()"  id="botonLRMmayor" class="btn btn-secondary">CALCULAR</button>
+                <button  onclick="LimpiarLRMmayor()" class="btn btn-secondary">LIMPIAR</button>
+                <br>
+                <br>
+        </div>
+
+        <div class="container" id="LRMmayor" style=" justify-content: center; max-width: max-content; margin-top: 10px;">
+              
+        </div>
+
+</div>
+</div>
+
+
+   <!-- Modal Letra Mayor>  -->
+   <div class="modal" id="ModalLetraMayor">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        
+        <div class="modal-header">
+          <h1 class="modal-title">Letra de Regulacion Monetaria (menor a 365 dias)</h1>
+          <button type="button" class="close" id="close4" data-dismiss="modal">×</button>
+        </div>
+        
+        <div class="modal-body">
+          <h3>Instrumento de Renta Fija</h3>
+          <p>* Valor Nominal en base a 1000</p>
+          <p>El BCU emite Letras de Regulación Monetaria (LRM) con el objetivo de regular la liquidez del sistema financiero.Se trata de instrumentos financieros de cupón cero (a descuento), y son los valores de mayor liquidez en el mercado. </p>
+          <p>Las LRM en moneda nacional se emiten actualmente a plazos de aproximadamente 30,90, 180, 360 y 720 días.</p>
+          <img src="images/LetraMayor.png" alt="LRM Mayor 365 dias" width="400" height="200">
+          <p></p>  
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="container-fluid" id="app"></div>
+  
+  <div class="container-fluid">
+  <div class="jumbotron text-center" style="margin-bottom:0; margin-top:50px">
+  <footer class="site-footer">
+    <div class="container mifooter">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>OBJETIVO</h6>
+          <p class="text-justify"><i>SIMULADOR DE INSTRUMENTOS DE AHORRO. </i>Se aplica para el Uruguay bajo los lineamientos de Usuario Financiero publicados en la pagina del BCU. Este simulador, apunta a brindar una aproximacion a las rentabilidades de cada uno de los instrumentos que se especifican para poder comparar con las tasas de mercado que se publican y asi, tomar una mejor decision de inversion.</p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Contacto</h6>
+          <ul class="footer-links">
+            <li><a href="mailto:ioannarr@hotmail.com?Subject=Hola!">ioannarr@hotmail.com</a></li>
+            <li><a href="https://github.com/ioannarr">Github/ioannarr</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="https://usuariofinanciero.bcu.gub.uy/">Usuario Financiero</a></li>
+            <li><a href="https://www.brou.com.uy/documents/20182/112335/tasas-vigentes.pdf/7f7df333-0f8e-4537-9f03-1db817a9de1c">Ebrou</a></li>
+            <li><a href="https://www.brou.com.uy/documents/20182/112335/tasas-vigentes.pdf/7f7df333-0f8e-4537-9f03-1db817a9de1c">Tasas de Mercado</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      
+    </div>
+
+    <div>          
+      <button type="button" id="toTop" onclick="ScrollUp()" class="btn btn-info">Top</button>       
+    </div> 
+</footer>
+
+
+
+</div>
+
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "NombreTasa6M":"Tasa a 6 Meses %",
+        "TasaCuponCero6M": 0.041,
+        "NombreTasa2A":"Tasa a 2 Años %",
+        "TasaCuponCero2A": 0.161,
+        "NombreTasa3A":"Tasa a 3 Años %",
+        "TasaCuponCero3A": 0.346,
+        "NombreTasa5A":"Tasa a 5 Años %",
+        "TasaCuponCero5A": 0.835,
+        "NombreTasa7A":"Tasa a 7 Años %",
+        "TasaCuponCero7A": 1.276,
+        "NombreTasa10A":"Tasa a 10 Años %",
+        "TasaCuponCero10A": 1.597,
+        "NombreTasa20A":"Tasa a 20 Años %",
+        "TasaCuponCero20A": 2.17 
+    }
+]
