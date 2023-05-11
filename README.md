@@ -17,6 +17,7 @@ Los eventos del Dom son capturados para agregar usabilidad a la aplicacion.
 ### Otras Observaciones
 - No requiere de ninguna instalacion para ejecutar el programa. 
 - Puede ser visualizado en Mozilla, Chrome o Edge.
+- Utilizar la aplicacion es muy sencilla, se requiere el ingreso manual de algunos datos sencillos que proveen los vendedores de los instrumentos financieros, como ser los plazos y los vencimientos. Tanto, las tasas actualizadas y los calculos der rendimiento las realiza el programa. 
 
 
 La motivacion de realizar este proyecto cuyo topico es de iniciativa propia, es en resultado del proyecto Integrador del curso de Javascript Avanzado de [Coderhouse.com](https://coderhouse.com.uy)
